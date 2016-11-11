@@ -1,15 +1,13 @@
 # K.N.B.N
-Project Phase 2 Third Week Blandford Fox
-
-Knbn is dedicated to make your daily task easier than ever. You can even customize your task and board to meet your needs!
+K.N.B.N is dedicated to make your daily task easier than ever. You can even customize your task and board to meet your needs!
 
 ## Apps Screenshot
 
 ### Landing Page
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![alt text](https://raw.githubusercontent.com/blanford-fox-2016/knbn/master/client/img/landing_page.png "Landing Page")
 
 ### board
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![alt text](https://raw.githubusercontent.com/blanford-fox-2016/knbn/master/client/img/board.png "Boards")
 
 ## Model
 
@@ -25,6 +23,7 @@ const cardSchema = new Schema ({
 ```
 
 ## Endpoint
+
 | Method   |      Routes        | Description   |
 |:--------:|:------------------:|--------------:|
 | GET      |  /api/cards        | Get all cards |
@@ -32,3 +31,12 @@ const cardSchema = new Schema ({
 | GET      |  /api/cards/:cardID| Get a cards   |
 | PUT      |  /api/cards/:cardID| Update a card |
 | DELETE   |  /api/cards/:cardID| Delete a card |
+
+## Copyright
+
+K.N.B.N is created with <3
+follow us on gitHub
+- [Ahyana](https://www.github.com/ahyanarizky)
+- [Juang](https://www.github.com/broerjuang)
+- [Ryan](https://www.github.com/ryanandhaka)
+- [Tama](https://www.github.com/tamatamvan)
