@@ -30,13 +30,10 @@ let creating = (req, res) => {
 
 let find = (req, res) => {
   // method mongoose
-  Card.find(req.params.cardID,
-    (err, show_a_card) => {
-      console.log(show_a_card);
-      if(err) res.status(400).json({'error': 'Error: ${err}'})
-      if(!show_a_card) res.status(404).json({'message':'Error to show a card'})
-      res.status(200).json(show_a_card)
-})
+  Card
+    .find({cardID : req.params.cardID})
+    .then(card => res.json(card))
+    .catch(err => res.json(err))
 }
 
 
