@@ -26,6 +26,11 @@
     </div>
 
     <div id="main" class="container">
+      <br>
+      <div class="row">
+        <button href="#" class="btn btn-success" type="button" data-toggle="modal" data-target="#addCard"><i class="glyphicon glyphicon-plus"></i>Create New Card</button>
+      </div>
+      <br>
       <div class="row">
 
         <!-- TO DO COLUMN SECTION -->
@@ -191,6 +196,45 @@
     </div>
 
     <!-- MODAL EDIT -->
+    <div class="modal fade" id="addCard" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Create New Card</h4>
+          </div>
+          <div class="modal-body">
+            <!-- INPUT FORM -->
+            <form id="addCard">
+              <div class="form-group">
+                <label class="control-label" for="cardTitle">Title</label>
+                <input class="form-control" id="cardTitle" type="text" placeholder="Enter the thing you wanna do . .">
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="cardDesc">Description</label>
+                <textarea class="form-control" rows="3" id="cardDesc" placeholder="Describe the thing you wanna do . ."></textarea>
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="cardInCharge">In Charge</label>
+                <input class="form-control" id="cardInCharge" type="text" placeholder="Enter the thing you wanna do . .">
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="cardDueDate">Due Date</label>
+                <input class="form-control" id="cardDueDate" type="text" placeholder="Enter the thing you wanna do . .">
+              </div>
+
+            </form>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-success" onclick="createNewCard()">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL EDIT -->
     <div class="modal fade" id="modalEdit_id" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -199,7 +243,25 @@
             <h4 class="modal-title" id="myModalLabel">Edit</h4>
           </div>
           <div class="modal-body">
-            ...
+            <!-- INPUT FORM -->
+            <form id="addCard">
+              <div class="form-group">
+                <label class="control-label" for="cardTitle">Title</label>
+                <input class="form-control" id="cardTitle" type="text" placeholder="Enter the thing you wanna do . .">
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="cardDesc">Description</label>
+                <textarea class="form-control" rows="3" id="cardDesc" placeholder="Describe the thing you wanna do . ."></textarea>
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="cardInCharge">In Charge</label>
+                <input class="form-control" id="cardInCharge" type="text" placeholder="Enter the thing you wanna do . .">
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="cardDueDate">Due Date</label>
+                <input class="form-control" id="cardDueDate" type="text" placeholder="Enter the thing you wanna do . .">
+              </div>
+            </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -218,11 +280,11 @@
             <h4 class="modal-title" id="myModalLabel">Delete</h4>
           </div>
           <div class="modal-body">
-            ...
+            Are you sure, want to delete this?
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-danger">Save changes</button>
+            <button type="button" class="btn btn-danger" onclick="deleteCard_id()">Save changes</button>
           </div>
         </div>
       </div>
