@@ -12,7 +12,8 @@ describe('Route create new kanban', function() {
     let newTitle = faker.lorem.sentence()
     let newContent = faker.lorem.sentences()
     let newDate = faker.date.future()
-    let newStatus = arr[Math.ceil(Math.random() * 3)]
+    let newStatus = arr[Math.ceil(Math.random() * 2)]
+    console.log(newStatus);
     let newPerson = faker.name.firstName()
     it('expect to return new kanban details', function(done) {
         chai.request(urlApi)
@@ -27,7 +28,7 @@ describe('Route create new kanban', function() {
             .end(function(req, res) {
                 expect(res.body.title).to.be.equal(newTitle)
                 expect(res.body.content).to.be.equal(newContent)
-                expect(res.body.due_date).to.be.equal(newDate)
+                expect(res.body.due_date).to.be.equal(newDate.toISOString())
                 expect(res.body.status).to.be.equal(newStatus)
                 expect(res.body.in_charge).to.be.equal(newPerson)
                 done()
