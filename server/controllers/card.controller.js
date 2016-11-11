@@ -59,10 +59,18 @@ let hapus = (req, res) => {
     })
 }
 
+let findByStatus = (req, res) => {
+  Card
+    .find({ status : req.params.status})
+    .then(card => res.json(card))
+    .catch(err => res.json(err))
+}
+
 module.exports = {
     list,
     creating,
     find,
     update,
-    hapus
+    hapus,
+    findByStatus
 }

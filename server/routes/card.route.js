@@ -19,5 +19,8 @@ router.put('/cards/:cardID', controller.update)
 /* DELETE one card only */
 router.delete('/cards/:cardID', controller.hapus)
 
+/* Get all the cards with same status*/
+router.get('/cards/status/:status', controller.findByStatus)
+
 
 module.exports = router
