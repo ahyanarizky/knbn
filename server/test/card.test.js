@@ -13,8 +13,8 @@ describe('Route create new kanban', function() {
     let newContent = faker.lorem.sentences()
     let newDate = faker.date.future()
     let newStatus = arr[Math.ceil(Math.random() * 3)]
-    let newPerson = faker.name.firstname()
-    it('expect to return new kanban title and description', function(done) {
+    let newPerson = faker.name.firstName()
+    it('expect to return new kanban details', function(done) {
         chai.request(urlApi)
             .post('/cards')
             .send({
@@ -33,4 +33,16 @@ describe('Route create new kanban', function() {
                 done()
             })
     })
+})
+
+describe.skip('Route get all kanbans', function() {
+    it('expect to return all kanbans', function(done) {
+            chai.request(urlApi)
+                .get('/cards')
+                .end(function(err, res) {
+
+                    expect(res.body.message).to.be.equal("List article")
+                    done()
+                }) // chai
+        }) // it
 })

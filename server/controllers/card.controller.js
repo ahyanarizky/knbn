@@ -14,10 +14,10 @@ let list = (req, res) => {
 
 let create = (req, res) => {
     Card.create({
-            title: req.body.title
-            content: req.body.content
-            due_date: req.body.due_date
-            status: req.body.status
+            title: req.body.title,
+            content: req.body.content,
+            due_date: req.body.due_date,
+            status: req.body.status,
             in_charge: req.body.in_charge
         },
         (err, new_card) => {
@@ -39,6 +39,7 @@ let find = (req, res) => {
 
         res.status(200).json(show_a_card)
     }
+
 
 let update = (req, res) => {
     Card.findOneAndUpdate({
