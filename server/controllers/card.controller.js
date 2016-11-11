@@ -52,7 +52,7 @@ let update = (req, res) => {
 }
 
 let hapus = (req, res) => {
-  Card.findOneandRemove({
+  Card.findOneAndRemove({
     cardID: req.params.cardID
   }, (err, delete_card) => {
         if(err) res.status(400).json({Error: `${err}`})
