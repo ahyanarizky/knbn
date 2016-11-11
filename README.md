@@ -34,7 +34,7 @@ const cardSchema = new Schema ({
 
 ## Copyright
 
-K.N.B.N is created with <3
+K.N.B.N is created with :love:
 follow us on gitHub
 - [Ahyana](https://www.github.com/ahyanarizky)
 - [Juang](https://www.github.com/broerjuang)
