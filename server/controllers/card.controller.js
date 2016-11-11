@@ -12,21 +12,17 @@ let list = (req, res) => {
     })
 }
 
-let create = (req, res) => {
-  Card.create({
-    title: req.body.title,
-    content: req.body.content,
-    due_date: req.body.due_date,
-    status: req.body.status,
-    in_charge: req.body.in_charge
-  },
-  (err, new_card) => {
-    console.log(new_card);
-    if(err) res.status(400).json({'error': 'Error: ${err}'})
-    if(!new_card) res.status(404).json({'message':'Error to create new card'})
-
-    res.status(200).json(new_card)
-  })
+let creating = (req, res) => {
+  Card
+    .create({
+      title: req.body.title,
+      content: req.body.content,
+      due_date: req.body.due_date,
+      status: req.body.status,
+      in_charge: req.body.in_charge
+    })
+    .then(card => res.status(200).json(card))
+    .catch(err => res.status(400).json({'error': 'Error: ${err}'}))
 }
 
 
@@ -69,7 +65,7 @@ let hapus = (req, res) => {
 
 module.exports = {
   list,
-  create,
+  creating,
   find,
   update,
   hapus

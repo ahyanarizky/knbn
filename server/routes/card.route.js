@@ -8,7 +8,7 @@ const controller = require('../controllers/card.controller');
 router.get('/cards', controller.list)
 
 /* POST one card only */
-router.post('/cards', controller.create)
+router.post('/cards', controller.creating)
 
 /* GET one card only */
 router.post('/cards/:cardID', controller.find)
@@ -17,7 +17,7 @@ router.post('/cards/:cardID', controller.find)
 router.put('/cards/:cardID', controller.update)
 
 /* DELETE one card only */
-router.delete('/cards/cardID', controller.hapus)
+router.delete('/cards/:cardID', controller.hapus)
 
 
 module.exports = router
