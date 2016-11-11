@@ -233,7 +233,59 @@ function done(id) {
   })
 }
 
+function todo(id) {
+  $.ajax({
+    url: "http://localhost:3000/api/cards/"+id,
+    method: 'PUT',
+    contentType: 'application/x-www-form-urlencoded',
+    data: {
+      status: 'todo'
+    },
+    success: function(data) {
+      console.log(data);
+      $(`#card_${id}`).remove();
+      var todo = `<!-- Single Card -->
+      <div class="panel panel-default" id="card_${data.cardID}">
+        <div class="panel-heading" role="tab" id="headingOne">
+          <h4 class="panel-title">
+            <button type="button" class="close" data-toggle="modal" data-target="#modalDelete_${data.cardID}"><span aria-hidden="true" class="glyphicon glyphicon-trash"></span></button>
 
+            <button type="button" class="close" data-toggle="modal" data-target="#modalEdit_${data.cardID}"><span aria-hidden="true" class="glyphicon glyphicon-edit"></span></button>
+
+            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne${data.cardID}" aria-expanded="true" aria-controls="collapseOne" id="currentTitle${data.cardID}">
+              ${data.title}
+            </a>
+          </h4>
+        </div>
+        <div class="panel-body">
+          <div class="alert alert-dismissible alert-info">
+            <strong>In Charge : </strong> <span id="currentInCharge${data.cardID}">${data.in_charge}</span>
+          </div>
+        </div>
+        <div id="collapseOne${data.cardID}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="list-group">
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Description</h4>
+                <p class="list-group-item-text text-left" id="currentContent${data.cardID}">${data.content}</p>
+              </a>
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Due Date</h4>
+                <p class="list-group-item-text text-left" id="currentDueDate${data.cardID}">${data.due_date}</p>
+              </a>
+              <div class="list-group-item">
+                <ul class="pager">
+                  <li class="next"><a href="#" onclick="doing('${data.cardID}')">&larr; Doing</a></li>
+                </ul>
+              </div>
+
+            </div>
+        </div>
+      </div>
+      <!-- Single Card -->`;
+      $(`.todo`).append(todo);
+    }
+  })
+}
 
 function updateCard(id) {
 
