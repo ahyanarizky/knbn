@@ -42,7 +42,7 @@ let update = (req, res) => {
   Card.findOneAndUpdate({
     cardID: req.params.cardID
   }, req.body,{
-    new: true
+    new: true,
   },(err, edited_card) => {
       if(err) res.status(400).json({Error: `${err}`})
       if(!edited_card) res.status(404).json({'message':'Error to edit a card'})
