@@ -20,7 +20,7 @@ function createNewCard() {
       var newEdit = ``;
       var newDelete = ``;
       newHTML += `<!-- Single Card -->
-      <div class="panel panel-default">
+      <div class="panel panel-default" id="card_${data.cardID}">
         <div class="panel-heading" role="tab" id="headingOne">
           <h4 class="panel-title">
             <button type="button" class="close" data-toggle="modal" data-target="#modalDelete_${data.cardID}"><span aria-hidden="true" class="glyphicon glyphicon-trash"></span></button>
@@ -93,6 +93,7 @@ function createNewCard() {
               </div>
             </div>
           </div>`;
+
       newDelete += `<!-- MODAL DELETE -->
       <div class="modal fade" id="modalDelete_${data.cardID}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -106,7 +107,7 @@ function createNewCard() {
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-danger" onclick="deleteCard_id('${data.cardID}')">Save changes</button>
+              <button type="button" class="btn btn-danger" onclick="deleteCard('${data.cardID}')" data-dismiss="modal">Delete</button>
             </div>
           </div>
         </div>
@@ -124,7 +125,24 @@ function createNewCard() {
 
 function updateCard(id) {
 
+
 }
+
+function deleteCard(id) {
+  $.ajax({
+    url         : 'http://localhost:3000/api/cards/'+id,
+    type        : 'DELETE',
+    dataType    : 'json',
+    contentType : 'application/x-www-form-urlencoded',
+    success     : function() {
+      $(`#card_${id}`).remove();
+      $(`#modalEdit_${id}`).remove();
+      $(`#modalDelete_${id}`).remove();
+      $(`.modal-backdrop`).remove();
+    }
+  })
+}
+
 
 function showmain() {
   $('#intro').hide();
