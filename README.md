@@ -3,6 +3,14 @@ Project Phase 2 Third Week Blandford Fox
 
 Knbn is dedicated to make your daily task easier than ever. You can even customize your task and board to meet your needs!
 
+## Apps Screenshot
+
+### Landing Page
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+
+### board
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+
 ## Model
 
 ```js
