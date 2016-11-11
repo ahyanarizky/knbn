@@ -273,7 +273,7 @@ function todo(id) {
               </a>
               <div class="list-group-item">
                 <ul class="pager">
-                  <li class="next"><a href="#" onclick="doing('${data.cardID}')">&larr; Doing</a></li>
+                  <li class="next"><a href="#" onclick="doing('${data.cardID}')">Doing &rarr;</a></li>
                 </ul>
               </div>
 
