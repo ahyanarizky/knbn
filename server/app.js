@@ -5,6 +5,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+
+// connecting to local db named knbn
+mongoose.connect('mongodb://localhost/knbn')
+
 // creating global promise from mongoose
 mongoose.Promise = global.Promise;
 
