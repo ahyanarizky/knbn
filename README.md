@@ -15,10 +15,10 @@ const cardSchema = {
 ```
 
 ## Endpoint
-| Method   |      Routes      |    Description |
-|:--------:|:----------------:|---------------:|
-| GET      |  /api/cards      |  Get all cards |
-| POST     |  /api/cards      |  Create a card |
-| GET      |  /api/cards.:_id |  Get a cards   |
-| PUT      |  /api/cards/:_id |  Update a card |
-| Delete   |  /api/cards/:_id |  Delete a card |
+| Method   |      Routes        | Description   |
+|:--------:|:------------------:|--------------:|
+| GET      |  /api/cards        | Get all cards |
+| POST     |  /api/cards        | Create a card |
+| GET      |  /api/cards/:cardID| Get a cards   |
+| PUT      |  /api/cards/:cardID| Update a card |
+| DELETE   |  /api/cards/:cardID| Delete a card |
