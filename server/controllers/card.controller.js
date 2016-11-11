@@ -16,7 +16,6 @@ let list = (req, res) => {
 let creating = (req, res) => {
   Card
     .create({
-      cardID: req.body.cardID,
       title: req.body.title,
       content: req.body.content,
       due_date: req.body.due_date,
