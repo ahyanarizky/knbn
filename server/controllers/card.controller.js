@@ -13,6 +13,7 @@ let list = (req, res) => {
 }
 
 let create = (req, res) => {
+    console.log('controller');
     Card.create({
             title: req.body.title,
             content: req.body.content,
@@ -22,7 +23,7 @@ let create = (req, res) => {
         },
         (err, new_card) => {
             console.log(new_card);
-            if (err) res.status(400).json({ 'error': 'Error: ${err}' })
+            if (err) res.status(400).json({ `error': 'Error: ${err}` })
             if (!new_card) res.status(404).json({ 'message': 'Error to create new card' })
             res.status(200).json(new_card)
         })
