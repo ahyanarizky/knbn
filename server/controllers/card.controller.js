@@ -2,6 +2,7 @@
 
 const Card = require('../models/card.model')
 
+
 let list = (req, res) => {
   Card
     .find({}, (err, all_card) => {
@@ -15,14 +16,15 @@ let list = (req, res) => {
 let creating = (req, res) => {
   Card
     .create({
+      cardID: req.body.cardID,
       title: req.body.title,
       content: req.body.content,
       due_date: req.body.due_date,
       status: req.body.status,
       in_charge: req.body.in_charge
     })
-    .then(card => res.status(200).json(card))
-    .catch(err => res.status(400).json({'error': 'Error: ${err}'}))
+    .then(card => res.json(card))
+    .catch(err => res.status(400).json({Error: `${err}`}))
 }
 
 
