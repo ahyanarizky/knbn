@@ -2,7 +2,7 @@
 
 const Card = require('../models/card.api.model')
 
-let showAllCard = (req, res) => {
+let list = (req, res) => {
   Card
     .find({}, (err, all_card) => {
       if(err) res.status(400).json({'error': 'Error: ${err}'})
@@ -12,7 +12,7 @@ let showAllCard = (req, res) => {
     })
 }
 
-let createCard = (req, res) => {
+let create = (req, res) => {
   Card.create({
     title: req.body.title
     content: req.body.content
@@ -29,7 +29,7 @@ let createCard = (req, res) => {
   })
 }
 
-let showCard = (req, res) =>{
+let find = (req, res) =>{
   cardID: req.params.cardID
 },
 (err, show_a_card) => {
@@ -40,7 +40,7 @@ let showCard = (req, res) =>{
   res.status(200).json(show_a_card)
 }
 
-let editCard = (req, res) => {
+let update = (req, res) => {
   Card.findOneAndUpdate({
     cardID: req.params.cardID
   }, req.body,{
@@ -53,7 +53,7 @@ let editCard = (req, res) => {
   })
 }
 
-let deleteCard = (req, res) => {
+let hapus = (req, res) => {
   Card.findOneandRemove({
     cardID: req.params.cardID
   }, (err, delete_card) => {
@@ -65,9 +65,9 @@ let deleteCard = (req, res) => {
 }
 
 module.exports = {
-  showAllCard,
-  createCard,
-  showCard,
-  editCard,
-  deleteCard
+  list,
+  create,
+  find,
+  update,
+  hapus
 }
