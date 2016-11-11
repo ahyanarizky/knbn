@@ -24,8 +24,10 @@ function createNewCard() {
         <div class="panel-heading" role="tab" id="headingOne">
           <h4 class="panel-title">
             <button type="button" class="close" data-toggle="modal" data-target="#modalDelete_${data.cardID}"><span aria-hidden="true" class="glyphicon glyphicon-trash"></span></button>
+
             <button type="button" class="close" data-toggle="modal" data-target="#modalEdit_${data.cardID}"><span aria-hidden="true" class="glyphicon glyphicon-edit"></span></button>
-            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" id="currentTitle${data.cardID}">
+
+            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne${data.cardID}" aria-expanded="true" aria-controls="collapseOne" id="currentTitle${data.cardID}">
               ${data.title}
             </a>
           </h4>
@@ -35,7 +37,7 @@ function createNewCard() {
             <strong>In Charge : </strong> <span id="currentInCharge${data.cardID}">${data.in_charge}</span>
           </div>
         </div>
-        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+        <div id="collapseOne${data.cardID}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
             <div class="list-group">
               <a href="#" class="list-group-item">
                 <h4 class="list-group-item-heading">Description</h4>
@@ -56,12 +58,12 @@ function createNewCard() {
       </div>
       <!-- Single Card -->`;
       newEdit += `    <!-- MODAL EDIT -->
-          <div class="modal fade" id="modalEdit_id" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal fade" id="modalEdit_${data.cardID}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="myModalLabel">Edit ${data.name}</h4>
+                  <h4 class="modal-title" id="myModalLabel">Edit ${data.title}</h4>
                 </div>
                 <div class="modal-body">
                   <!-- INPUT FORM -->
@@ -92,12 +94,12 @@ function createNewCard() {
             </div>
           </div>`;
       newDelete += `<!-- MODAL DELETE -->
-      <div class="modal fade" id="modalDelete_id" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal fade" id="modalDelete_${data.cardID}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel">Delete ${data.name}</h4>
+              <h4 class="modal-title" id="myModalLabel">Delete ${data.title}</h4>
             </div>
             <div class="modal-body">
               Are you sure, want to delete this?
@@ -119,6 +121,10 @@ function createNewCard() {
     }
   });
 };
+
+function updateCard(id) {
+
+}
 
 function showmain() {
   $('#intro').hide();
