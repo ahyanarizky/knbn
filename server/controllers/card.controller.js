@@ -15,7 +15,6 @@ let list = (req, res) => {
 let creating = (req, res) => {
     Card
         .create({
-            cardID: req.body.cardID,
             title: req.body.title,
             content: req.body.content,
             due_date: req.body.due_date,
@@ -28,13 +27,10 @@ let creating = (req, res) => {
 
 let find = (req, res) => {
     // method mongoose
-    Card.find(req.params.cardID,
-        (err, show_a_card) => {
-            console.log(show_a_card);
-            if (err) res.status(400).json({ 'error': 'Error: ${err}' })
-            if (!show_a_card) res.status(404).json({ 'message': 'Error to show a card' })
-            res.status(200).json(show_a_card)
-        })
+    Card
+        .find({ cardID: req.params.cardID })
+        .then(card => res.json(card))
+        .catch(err => res.json(err))
 }
 
 
@@ -43,20 +39,22 @@ let update = (req, res) => {
     Card.findOneAndUpdate({
         cardID: req.params.cardID
     }, req.body, {
-        new: true
+        new: true,
     }, (err, edited_card) => {
         if (err) res.status(400).json({ Error: `${err}` })
         if (!edited_card) res.status(404).json({ 'message': 'Error to edit a card' })
+
         res.status(200).json(edited_card)
     })
 }
 
 let hapus = (req, res) => {
-    Card.findOneandRemove({
+    Card.findOneAndRemove({
         cardID: req.params.cardID
     }, (err, delete_card) => {
         if (err) res.status(400).json({ Error: `${err}` })
         if (!delete_card) res.status(404).json({ 'message': 'Error to delete a card' })
+
         res.status(200).json(delete_card)
     })
 }

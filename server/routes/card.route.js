@@ -11,7 +11,7 @@ router.get('/cards', controller.list)
 router.post('/cards', controller.creating)
 
 /* GET one card only */
-router.post('/cards/:cardID', controller.find)
+router.get('/cards/:cardID', controller.find)
 
 /* PUT a card */
 router.put('/cards/:cardID', controller.update)
