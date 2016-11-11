@@ -55,7 +55,7 @@ let hapus = (req, res) => {
         if (err) res.status(400).json({ Error: `${err}` })
         if (!delete_card) res.status(404).json({ 'message': 'Error to delete a card' })
 
-        res.status(200).json(delete_card)
+        res.status(200).json({ delete_card: delete_card, message: 'delete successfull' })
     })
 }
 
